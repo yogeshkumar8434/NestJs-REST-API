@@ -7,5 +7,6 @@ module.exports = {
   'password': 'admin',
   'database': 'usermanagment',
   'entities': [process.env.ENTITY_PATH],
-  'synchronize': true
+  'synchronize': true,
+  'extensions': ['uuid-ossp'],
 }

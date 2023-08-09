@@ -3,8 +3,8 @@ import { UserStatus } from "../user-status/user-status.enum";
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column({ name: 'first_name', nullable: false })
   firstName: string;
