@@ -33,18 +33,18 @@ export class UserController {
   }
 
   @Get('/:id')
-  getUserById(@Param('id', ParseIntPipe) id: number): Promise<UserEntity> {
+  getUserById(@Param('id') id: string): Promise<UserEntity> {
     return this.userService.getUserById(id);
   }
 
   @Delete('/:id')
-  deleteUserById(@Param('id', ParseIntPipe) id: number): Promise<void> {
+  deleteUserById(@Param('id') id: string): Promise<void> {
     return this.userService.deleteUserById(id);
   }
 
   @Patch('/:id/status')
   updateUserStatus(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body('status', UserStatusValidationPipe) status: UserStatus,
   ): Promise<UserEntity> {
     return this.userService.updateUserStatus(id, status);
@@ -52,7 +52,7 @@ export class UserController {
 
   @Put('/:id')
   updateUser(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<UpdateUserDto> {
     return this.userService.updateUserData(id, updateUserDto);

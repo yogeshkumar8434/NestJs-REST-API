@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserStatus } from "../user-status/user-status.enum";
+import { Task } from "src/tasks/entity/task.entity";
 
 @Entity('users')
 export class UserEntity {
@@ -20,5 +21,8 @@ export class UserEntity {
 
   @Column()
   status: UserStatus;
+
+  @OneToMany(() => Task, task => task.user)
+  tasks: Task[];
 
 }
